@@ -1,0 +1,59 @@
+https://www.youtube.com/watch?v=QF4ZF857m44
+https://habr.com/ru/post/272145/
+https://jstobigdata.com/managing-docker-container/
+
+docker build -t hello-world "путь к Dockerfile" - создать образ c именем (hello-world) на компьютере	 - .  в текущей директории
+docker images  - посмотреть локальные образы
+docker ps - посмотреть активные контейнеры
+docker ps -a посмотреть все контейры, в том числе остановленные
+docker ps -a -q показать id контейнеров
+docker rm - удалить контейнер
+docker rmi удалить image
+docker create
++				= docker run
+docker start
+docker run "имя образа" - старт образа
+		-it интерактивный режим
+		-d - запустить в фоне
+		--name "имя"
+		--rm - контейнер будет удален после остановки или выполнения 
+		-p 8080:8080 проброс порта от машины к контейнеру
+		-e указать переменную при запуске
+		-v папка локальная:папка докера    примонтировать
+		-v имя volume:папка докера    примонтировать
+		
+docker start имя   стартует остановленный контейнер
+docker exec -it имя bash  - выполнить команду внутри контейнера
+		
+docker rm $(docker ps -qa)	удалить все контейнеры	
+docker stop
+docker attach - присоединиться к контейнеру
+
+docker volume - папка
+	create имя 	создать
+	-ls 	посмотреть папки
+
+Dockerfile пример
+
+FROM python:3.6   Базовый образ на котором будет работать
+RUN mkdir -p /usr/src/app - команда которая будет выполнена
+WORKDIR /usr/src/app		-	выполнение команд исполняется из указанного каталога
+COPY . /usr/src/app  - откуда будет производиться копирование (с нашей машины в дирректорию)
+RUN pip install --no-cache-dir -r requrements.txt
+EXPOSE 8080 диклорация проброса порта
+ENV TZ Europe/Moscow 	задаем переменную окружения
+CMD ["python", "app.py"] - команда которую необходимо исполнить после старта контейнера - выполняется через shell
+или
+ENTRYPOINT ["python", "app.py"] - выполняется без shell
+
+
+pip install - пакетный менеджер для python
+
+docker compose - надстройка над docker выполняющая сценарий поднятия проекта с несколькими контейнерами
+docker-compose up -d поднять контейнеры по сценарию
+
+Работа с dockerHub
+docker build -t namelogin/nameimage
+docker login - залогиниться в docker hub
+
+docker push namelogin/nameimage

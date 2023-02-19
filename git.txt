@@ -1,0 +1,43 @@
+gitgit config --global user.name "Aleksandr Lisovskiy"
+git config --global user.email "lisovskiy.as@gmail.com"
+
+		--system		все пользователи системы
+		--global				конкретный пользователь
+		--local			к конкретному репозиторию
+
+git init - создать репозиторий
+git status
+git add namefile  подготовка файла к коммиту
+git commit -m "Сообщение" 
+			-am 	закомитить все файлы, дополнительно выполнится git add
+git log -p - показывает историю коммитов
+git show hashcommit - покажет, что было сделано в коммит
+git restore namefile - откатить файл на последний коммит
+			--staged	отменить изменения файла внесенного в индекс
+git diff 	покажет какие изменения были внесены
+		--staged    покажет изменения для файлов внесенных в index через команду git add
+git mv oldnamefile  newnamefile   переименовывает или переносит файл
+git rm filename  удалить файл
+		--cached  	удалит файл в staged но оставит файл в untracker
+		
+git branch nameветки - создать новую ветку
+		-a  - посмотреть какие ветки ест
+		-d nameветки   удалить ветку
+git checkout nameветки   - переключиться на новую ветку
+git checkout hashcommit  - вернуться на состояние определенного коммит 
+git checkout -b nameветки  - создает (branch) и переключается на ветку
+						hashcommit  - отводит ветку от конкретного коммит
+git merege -  
+
+git reset --hard hashcommit  переключает head и мастер на определенный коммит, более новые коммит в git log отображаться не будут
+
+git clone linkgit склонировать проект
+git remote					управляет удаленными серверами
+			-v  показывает какие есть удаленные репозитории
+			add origin(или другое имя удаленного репозитория) - принято называть origin если репозиторий один в проекте
+git push origin master - отправляет изменения в репозиторий origin  в ветку мастер
+git push --set-upstream origin master выполняется единождлы для связки локальной ветки мастер с удалённым origin
+git push 	можно выполнять если выполнена команда выше
+git pull origin master
+git fetch origin
+			
