@@ -1,6 +1,4 @@
-https://www.youtube.com/watch?v=QF4ZF857m44
-https://habr.com/ru/post/272145/
-https://jstobigdata.com/managing-docker-container/
+Убраны 3 ссылки сверху
 
 docker build -t hello-world "путь к Dockerfile" - создать образ c именем (hello-world) на компьютере	 - .  в текущей директории
 docker images  - посмотреть локальные образы
@@ -46,6 +44,22 @@ CMD ["python", "app.py"] - команда которую необходимо и
 или
 ENTRYPOINT ["python", "app.py"] - выполняется без shell
 
+ЗДЕСЬ добавлен текст репозитория 1 и две строки с низу
+
+
+git merege -  
+
+git reset --hard hashcommit  переключает head и мастер на определенный коммит, более новые коммит в git log отображаться не будут
+
+git clone linkgit склонировать проект
+git remote					управляет удаленными серверами
+			-v  показывает какие есть удаленные репозитории
+			add origin(или другое имя удаленного репозитория) - принято называть origin если репозиторий один в проекте
+git push origin master - отправляет изменения в репозиторий origin  в ветку мастер
+git push --set-upstream origin master выполняется единождлы для связки локальной ветки мастер с удалённым origin
+git push 	можно выполнять если выполнена команда выше
+git pull origin master
+git fetch origin
 
 pip install - пакетный менеджер для python
 
